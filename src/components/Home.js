@@ -1,10 +1,21 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-function Home({currencies}){
+function Home({currencies,setCurrencies}){
+
+    function handleSearch(searchTerm) {
+    fetch(`https://openexchangerates.org/api/currencies.json?currency_like=${searchTerm}`)
+      .then(response => response.json())
+      .then(data => {
+        setCurrencies(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
     return (
         <>
-        <SearchBar/>
+        <SearchBar onSearch={handleSearch}/>
         <table className="table">
           <thead className="thead">
             <tr className="trHead">
