@@ -1,9 +1,23 @@
-import React from "react"
-
+import React,{useState,useEffect} from "react"
+import Home from "./Home"
 function App() {
+    const [currencies, setCurrencies] = useState([]);
+
+  useEffect(() => {
+    fetch('https://openexchangerates.org/api/currencies.json')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      setCurrencies(data);
+    })
+    .catch(error => {
+      console.error('Error fetching transactions:', error);
+    });
+  }, []);
  return (
   <div >
-   <h1>Phase 2 Project</h1>
+   <Home currencies={currencies} />
   </div>
  )
 }
