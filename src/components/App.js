@@ -17,7 +17,7 @@ function App() {
   }, []);
  return (
   <div >
-   <Home currencies={currencies} />
+   <Home currencies={currencies} setCurrencies={setCurrencies} />
   </div>
  )
 }
