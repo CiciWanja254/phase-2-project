@@ -1,11 +1,8 @@
 import React from "react";
+import ExchangeCurrentCurrency from "./ExchangeCurrent/ExchangeCurrentCurrency"
 
 function Current(){
- return(
-  <div>
-   <h1>Current Page</h1>
-  </div>
- )
+ return <ExchangeCurrentCurrency />
 }
 
 export default Current;
