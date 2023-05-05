@@ -1,39 +1,73 @@
-import React from "react";
-import SearchBar from "./SearchBar";
+import React, { useState, useEffect } from 'react';
 
-function Home({currencies,setCurrencies}){
+function Home() {
+  const [baseCurrency, setBaseCurrency] = useState('USD');
+  const [rates, setRates] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  //   function handleSearch(searchTerm) {
-  //   fetch(`https://openexchangerates.org/api/currencies.json?currency_like=${searchTerm}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setCurrencies(data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
-  //   return (
-  //       <>
-  //       <SearchBar onSearch={handleSearch}/>
-  //       <table className="table">
-  //         <thead className="thead">
-  //           <tr className="trHead">
-  //             <th>Currency</th>
-  //           </tr>
-  //         </thead>
-  //         <tbody className="tbody">
-  //         {currencies.map((currency )=> (
-  //           <tr className="trBody" key={currency.index}>
-  //             <td className="td">{currency.name}</td>
-  //           </tr>
-  //         ))}
-  //       </tbody>
-  //     </table>
-  //     </>
+  useEffect(() => {
+    async function fetchRates() {
+      setLoading(true);
+      const response = await fetch(`https://openexchangerates.org/api/latest.json?app_id=18938eda4445470d9d252bb390ccfa22&base=${baseCurrency}`);
+      const data = await response.json();
+      setRates(data.rates);
+      setLoading(false);
+    }
+    fetchRates();
+  }, [baseCurrency]);
+
+  function handleBaseCurrencyChange(event) {
+    setBaseCurrency(event.target.value);
+  }
+
+  function handleSearchTermChange(event) {
+    setSearchTerm(event.target.value);
+  }
+
+  const filteredRates = Object.entries(rates).filter(([currency]) =>
+    currency.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <h1>Home Page</h1>
-  )
+    <div className='homeDiv'>
+      <h1>ExchangePal</h1>
+      <div>
+       <label htmlFor="base-currency">Base Currency:</label>
+      <input id="base-currency" type="text" value={baseCurrency} onChange={handleBaseCurrencyChange} />
+      </div>
+      <div>
+      <label htmlFor="search-term">Search Currency:</label>
+      <input id="search-term" type="text" value={searchTerm} onChange={handleSearchTermChange} />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          {loading ? (
+            <tr>
+              <td>Loading...</td>
+            </tr>
+          ) : filteredRates.length ? (
+            filteredRates.map(([currency, rate]) => (
+              <tr key={currency}>
+                <td>{currency}</td>
+                <td>{rate.toFixed(2)}</td>
+              </tr>
+            ))
+          ) : (
+          <tr>
+            <td colSpan="2">No results found.</td>
+          </tr>
+          )}
+      </tbody>
+    </table>
+    </div>
+  );
 }
 
 export default Home;

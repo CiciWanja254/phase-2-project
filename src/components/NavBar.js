@@ -1,43 +1,36 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const linkStyles = {
-  width: "100px",
-  padding: "12px",
-  margin: "3px 6px 6px",
-  background: "indigo",
-  textDecoration: "none",
-  color: "white",
-};
+
 function Navbar() {
   return (
-    <div>
+    <div className="navbar-container">
       
         <NavLink
         to="/"
-        exact
-        style={linkStyles}
+        className="navbar-link"
+        
         >
           Home
         </NavLink>
         <NavLink
         to="/current"
-        exact
-        style={linkStyles}
+        className="navbar-link"
+        
         >
           Current
         </NavLink>
         <NavLink
         to="/history"
-        exact
-        style={linkStyles}
+        className="navbar-link"
+        
         >
           History
         </NavLink>
         <NavLink
         to="/reviews"
-        exact
-        style={linkStyles}
+        className="navbar-link"
+        
         >
           Reviews
         </NavLink>

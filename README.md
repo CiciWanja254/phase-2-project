@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Phase-2-project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ExchangePal
 
-## Available Scripts
+This is a simple web application that displays and enables the users to vies currency exchange rates. Users can also and leave feedback.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This project seeks to create an app that allows users to easily exchange their currency and also compare current exchange rates with past exchange rates from the comfort of their home.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Executing program
 
-### `npm test`
+#1) Clone this repository.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone git@github.com:CiciWanja254/phase-2-project.git
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#2) Run `npm start` in the terminal to start the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The web page will load and display the ExchangePal application. The landing page would have a navigation bar that a user would click to view various aspects of the page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Users can view the history, current exchange rates and finally have their comments in the final page and also react to other users comments by simply entering their names and comment in the appropriate fields and click the "Submit" button. Your comment will be added to the list of comments below the form
 
-### `npm run eject`
+#3)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![gif](assets/exchangepal.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### How to Access online
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Follow link => https://github.com/CiciWanja254/phase-2-project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Technologies
 
-## Learn More
+- HTML
+- CSS
+- JavaScript
+- React
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project uses the Exchange Rates API to fetch the exchnage rates. You can get an API key by following the instructions on the NExchange Rates API website.https://exchangeratesapi.io/.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Functionality
+  React is used to fetch the exchnage rates from the Exchange Rates API and displays it on the page. The user can veiw the rates of the dolar against other currencies, the current rates and the history.The Reviews page has the comment section with a like button increments a counter each time it is clicked on every comment, which are added to the comment section below.
 
-### Code Splitting
+- Styling
+  The page is styled using custom CSS. The font family used is Montserrat.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Help
 
-### Analyzing the Bundle Size
+For questions write an email to owalajoab@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Authors
 
-### Making a Progressive Web App
+This project was created by Joab Owala
+[https://github.com/JoabOwala](user@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Version History
 
-### Advanced Configuration
+- 0.1
+  - Initial Release
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Acknowledgments
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://exchangeratesapi.io/
+  Inspiration, code snippets.
+- freefrontend.com/bootstrap-code-examples/
+- freefrontend.com/css-cards/
+- Bootstrap framework

@@ -7,20 +7,7 @@ import History from "./HistoryPage";
 import Reviews from "./ReviewsPage";
 
 function App() {
-  //   const [currencies, setCurrencies] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('https://openexchangerates.org/api/currencies.json')
-  //   .then(response => {
-  //     return response.json();
-  //   })
-  //   .then(data => {
-  //     setCurrencies(data);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error fetching transactions:', error);
-  //   });
-  // }, []);
+  
  return (
   <Router>
       <Navbar />
