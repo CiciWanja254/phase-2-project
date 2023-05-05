@@ -34,6 +34,12 @@ const ExchangeCurrentCurrency = () => {
       });
   };
 
+  function handleOnDelete(index) {
+    const newHistory = [...history]; // create a new array copy
+    newHistory.splice(index, 1); // remove the item at the specified index
+    setHistory(newHistory); // update the state with the new array
+  }
+  
   return (
     <div>
       <ExchangeCurrentCurrencyForm
@@ -45,7 +51,7 @@ const ExchangeCurrentCurrency = () => {
         onToCurrencyChange={(e) => setToCurrency(e.target.value)}
         onSubmit={handleFormSubmit}
       />
-      <ExchangeCurrentCurrencyResults result={result} history={history} />
+      <ExchangeCurrentCurrencyResults result={result} history={history} onDelete={handleOnDelete} />
     </div>
   );
 };

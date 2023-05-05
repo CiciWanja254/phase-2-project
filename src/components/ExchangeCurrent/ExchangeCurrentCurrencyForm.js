@@ -1,6 +1,8 @@
 import React from 'react';
+import currencies from './../../data';
 
 function ExchangeCurrentCurrencyForm(props) {
+
   return (
     <form onSubmit={props.onSubmit}>
       <label htmlFor="amount-input">Enter amount:</label>
@@ -21,8 +23,6 @@ function ExchangeCurrentCurrencyForm(props) {
       >
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="JPY">JPY</option>
       </select>
       <label htmlFor="to-currency-select">To currency:</label>
       <select
@@ -31,10 +31,9 @@ function ExchangeCurrentCurrencyForm(props) {
         value={props.toCurrency}
         onChange={props.onToCurrencyChange}
       >
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="JPY">JPY</option>
+        {
+          currencies.map((currency, index) => (<option key={index} value={currency}>{currency}</option>))
+        }
       </select>
       <button type="submit">Convert</button>
     </form>
